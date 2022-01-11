@@ -1,0 +1,15 @@
+﻿{
+  "Name": "Taka Kuromiya NPC - Mail",
+  "Author": "ilyAoiMiyake",
+  "Version": "1.0",
+  "Description": "Taka will send you mail every once in a while.",
+  "UniqueID": "ilyAoiMiyake.TakaKuromiyaMail",
+  "Dependencies": [
+    {
+      "UniqueID": "ilyAoiMiyake.TakaKuromiya"
+    }
+  ],
+  "ContentPackFor": {
+      "UniqueID": "DIGUS.MailFrameworkMod"
+    }
+}

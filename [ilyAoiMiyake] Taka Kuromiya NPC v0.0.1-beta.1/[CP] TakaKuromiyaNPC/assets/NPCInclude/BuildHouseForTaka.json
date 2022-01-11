@@ -1,0 +1,167 @@
+{
+  "Changes": [
+    {
+      "LogName": "Taka - About New House",
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Taka",
+      "When": {
+        "HasFlag |contains=TakaNewHome": true
+      },
+      "Entries": {
+        "10": "You know, I enjoy living on a farm.$0#$b#Thanks for helping me build it, @.$h",
+        "20": "You know, I enjoy living on a farm.$0#$b#Thanks for helping me build it, @.$h"
+      }
+    },
+    {
+      "LogName": "Taka - Before New House",
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Taka",
+      "When": {
+        "HasFlag |contains=TakaNewHome": false
+      },
+      "Entries": {
+        "10": "I kinda want to live on a farm.$0#$b#That would definitely be my ideal living style.$h",
+        "20": "I kinda want to live on a farm.$0#$b#That would definitely be my ideal living style.$h"
+      }
+    },
+    {
+      "LogName": "Taka - Special Order Strings",
+      "Action": "EditData",
+      "Target": "Strings/SpecialOrderStrings",
+      "Entries": {
+        "Taka_Name": "Help Robin Build Taka a House",
+        "Taka_Text": "Taka desperately wants a house. Can you help Robin build it for him?",
+        "Taka_Objective_0_Text": "Collect 300 hardwood. Robin needs fresh wood for this job.",
+        "Taka_Objective_1_Text": "Donate 300 hardwood to the woodpile near Taka's trailer.",
+        "Taka_Objective_2_Text": "Put 100 stone by the woodpile near Taka's trailer.",
+        "Taka_Objective_3_Text": "Put 4 iron bars by the woodpile near Taka's trailer.",
+        "Taka_Objective_4_Text": "Put 1 energy tonic by the woodpile to help Robin work faster."
+      }
+    },
+    {
+      "LogName": "Taka - Special Order",
+      "Action": "EditData",
+      "Target": "Data/SpecialOrders",
+      "Entries": {
+        "TakaKuromiya": {
+          "Name": "[Taka_Name]",
+          "Requester": "Taka",
+          "Duration": "Month",
+          "Repeatable": "False",
+          "RequiredTags": "",
+          "OrderType": "",
+          "SpecialRule": "",
+          "Text": "[Taka_Text]",
+          "ItemToRemoveOnEnd": null,
+          "MailToRemoveOnEnd": null,
+          "RandomizedElements": null,
+          "Objectives": [
+            {
+              "Type": "Collect",
+              "Text": "[Taka_Objective_0_Text]",
+              "RequiredCount": "300",
+              "Data": {
+                "AcceptedContextTags": "item_hardwood"
+              }
+            },
+            {
+              "Type": "Donate",
+              "Text": "[Taka_Objective_1_Text]",
+              "RequiredCount": "300",
+              "Data": {
+                "DropBox": "TakaWood",
+                "DropBoxGameLocation": "Town",
+                "DropBoxIndicatorLocation": "88.5 103",
+                "AcceptedContextTags": "item_hardwood"
+              }
+            },
+            {
+              "Type": "Donate",
+              "Text": "[Taka_Objective_2_Text]",
+              "RequiredCount": "100",
+              "Data": {
+                "DropBox": "TakaWood",
+                "DropBoxGameLocation": "Town",
+                "DropBoxIndicatorLocation": "88.5 103",
+                "AcceptedContextTags": "item_stone"
+              }
+            },
+            {
+              "Type": "Donate",
+              "Text": "[Taka_Objective_3_Text]",
+              "RequiredCount": "4",
+              "Data": {
+                "DropBox": "TakaWood",
+                "DropBoxGameLocation": "Town",
+                "DropBoxIndicatorLocation": "88.5 103",
+                "AcceptedContextTags": "item_iron_bar"
+              }
+            },
+            {
+              "Type": "Donate",
+              "Text": "[Taka_Objective_4_Text]",
+              "RequiredCount": "1",
+              "Data": {
+                "DropBox": "TakaWood",
+                "DropBoxGameLocation": "Town",
+                "DropBoxIndicatorLocation": "88.5 103",
+                "AcceptedContextTags": "item_energy_tonic"
+              }
+            }
+          ],
+          "Rewards": [
+            {
+              "Type": "Money",
+              "Data": {
+                "Amount": "8000"
+              }
+            },
+            {
+              "Type": "Mail",
+              "Data": {
+                "MailReceived": "TakaNewHome",
+                "NoLetter": "true"
+              }
+            },
+            {
+              "Type": "Friendship",
+              "Data": {}
+            }
+          ]
+        }
+      }
+    },
+    {
+      "LogName": "KuromiyaNewHouse Patch",
+      "Action": "EditMap",
+      "Target": "Maps/idfk",
+      "FromFile": "assets/NPCMap/idfk_Patch.tmx",
+      "When": {
+        "HasFlag |contains=TakaNewHome": true
+      }
+    },
+    {
+      "LogName": "KuromiyaFarm Forest Patch",
+      "Action": "EditMap",
+      "Target": "Maps/Forest",
+      "FromFile": "assets/NPCMap/KuromiyaForest.tmx", 
+      "FromArea": { "X": 0, "Y": 55, "Width": 14, "Height": 19 },
+      "ToArea": { "X": 0, "Y": 55, "Width": 14, "Height": 19 },
+      "When": {
+        "HasFlag |contains=TakaNewHome": true
+      }
+    },
+    {
+      "LogName": "KuromiyaFarm Forest Patch",
+      "Action": "EditMap",
+      "Target": "Maps/Forest-IceFestival",
+      "FromFile": "assets/NPCMap/KuromiyaForestIce.tmx", 
+      "FromArea": { "X": 0, "Y": 55, "Width": 14, "Height": 19 },
+      "ToArea": { "X": 0, "Y": 55, "Width": 14, "Height": 19 },
+      "When": {
+        "HasFlag |contains=TakaNewHome": true,
+        "DayEvent": "festival of ice"
+      }
+    }
+  ]
+}

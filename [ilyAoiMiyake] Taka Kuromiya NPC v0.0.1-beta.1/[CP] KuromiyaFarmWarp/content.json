@@ -1,0 +1,53 @@
+{
+  "Format": "1.24.0",
+  "Changes": [
+    {
+      "Action": "EditMap",
+      "Target": "Maps/Custom_KuromiyaFarm",
+      "MapTiles": [
+        {
+          "Position": { "X": 17, "Y": 6 },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "LockedDoorWarp 0 0 Custom_KuromiyaNewHouse 830 2230"
+          }
+        }
+      ]
+    },
+    {
+      "Action": "EditMap",
+      "Target": "Maps/Custom_KuromiyaFarm",
+      "MapTiles": [
+        {
+          "Position": { "X": 17, "Y": 7 },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "LockedDoorWarp 0 0 Custom_KuromiyaNewHouse 830 2230"
+          }
+        }
+      ]
+    },
+    {
+      "Action": "EditMap",
+      "Target": "Maps/Custom_KuromiyaFarm",
+      "When": { "HasFlag |contains=TakaNewHome": true },
+      "AddWarps": [
+        "29 24 Forest 1 66",
+        "29 25 Forest 1 66",
+        "29 26 Forest 1 66",
+        "29 27 Forest 1 66",
+        "29 28 Forest 1 66"
+      ]
+    },
+    {
+      "Action": "EditMap",
+      "Target": "Maps/Forest",
+      "When": { "HasFlag |contains=TakaNewHome": true },
+      "AddWarps": [
+        "0 65 Custom_KuromiyaFarm 28 25",
+        "0 66 Custom_KuromiyaFarm 28 25",
+        "0 67 Custom_KuromiyaFarm 28 25"
+      ]
+    }
+  ]
+}

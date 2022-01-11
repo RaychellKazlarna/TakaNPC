@@ -1,0 +1,102 @@
+[
+	{
+		"Id": "Kuromiya0Heart",
+		"GroupID": "TakaKuromiya",
+		"Text": "taka0.text",
+                "TextColor": 0,
+		"LetterBG": "KuromiyaBG.png",
+		"FriendshipConditions":
+		[
+			{ "NpcName": "Taka", "FriendshipLevel": 0 }
+		],
+	},
+	{
+		"Id": "Kuromiya2Heart",
+		"GroupID": "TakaKuromiya",
+		"Text": "taka2.text",
+                "TextColor": 0,
+		"LetterBG": "KuromiyaBG.png",
+		"FriendshipConditions":
+		[
+			{ "NpcName": "Taka", "FriendshipLevel": 2 }
+		],
+	},
+	{
+		"Id": "Kuromiya4Heart",
+		"GroupID": "TakaKuromiya",
+		"Text": "taka4.text",
+                "TextColor": 0,
+		"LetterBG": "KuromiyaBG.png",
+		"FriendshipConditions":
+		[
+			{ "NpcName": "Taka", "FriendshipLevel": 4 }
+		],
+	},
+	{
+		"Id": "Kuromiya6Heart",
+		"GroupID": "TakaKuromiya",
+		"Text": "taka6.text",
+                "TextColor": 0,
+		"LetterBG": "KuromiyaBG.png",
+		"FriendshipConditions":
+		[
+			{ "NpcName": "Taka", "FriendshipLevel": 6 }
+		],
+	},
+	{
+		"Id": "Kuromiya8Heart",
+		"GroupID": "TakaKuromiya",
+		"Text": "taka8.text",
+                "TextColor": 0,
+		"LetterBG": "KuromiyaBG.png",
+		"FriendshipConditions":
+		[
+			{ "NpcName": "Taka", "FriendshipLevel": 8 }
+		],
+	},
+	{
+		"Id": "Kuromiya10Heart.Platonic",
+		"GroupID": "TakaKuromiya",
+		"Text": "taka10p.text",
+                "TextColor": 0,
+		"LetterBG": "KuromiyaBG.png",
+		"FriendshipConditions":
+		[
+			{ "NpcName": "Taka", "FriendshipLevel": 10, "FriendshipStatus": ["Friendly"]}
+		],
+               "Attachments": [
+               {
+                "Type": "Object", 
+                "Name": "Treasure Chest",
+                "Stack": 1,
+               },
+	},
+	{
+		"Id": "Kuromiya10Heart.Dating",
+		"GroupID": "TakaKuromiya",
+		"Text": "taka10d.text",
+                "TextColor": 0,
+		"LetterBG": "KuromiyaBG.png",
+		"FriendshipConditions":
+		[
+			{ "NpcName": "Taka", "FriendshipLevel": 10, "FriendshipStatus": ["Dating"]}
+		],
+               "Attachments": [
+               {
+                "Type": "Object", 
+                "Name": "Treasure Chest",
+                "Stack": 1,
+               },
+	},
+	{
+		"Id": "Kuromiya10Heart.Married",
+		"GroupID": "TakaKuromiya",
+		"Text": "taka10m.text",
+                "TextColor": 0,
+		"LetterBG": "KuromiyaBG.png",
+		"FriendshipConditions":
+		[
+			{ "NpcName": "Taka", "FriendshipLevel": 10, "FriendshipStatus": ["Married"]}
+		],
+	}
+]

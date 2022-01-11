@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.1" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="6" height="9" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="1">
+ <tileset firstgid="1" name="indoor" tilewidth="16" tileheight="16" tilecount="2176" columns="32">
+  <image source="../../../../../Content (unpacked)/Maps/townInterior" width="512" height="1088"/>
+ </tileset>
+ <tileset firstgid="2177" name="p" tilewidth="16" tileheight="16" tilecount="36" columns="4">
+  <image source="../../../../../Content (unpacked)/Maps/paths" width="64" height="144"/>
+ </tileset>
+ <layer id="1" name="Back" width="6" height="9">
+  <data encoding="csv">
+270,270,270,270,270,270,
+270,270,270,270,270,270,
+270,270,270,270,270,270,
+575,576,575,576,575,576,
+607,608,607,608,607,608,
+607,608,607,608,607,608,
+607,608,607,608,607,608,
+607,608,607,608,607,608,
+639,640,509,640,639,640
+</data>
+ </layer>
+ <layer id="11" name="Back1" width="6" height="9">
+  <data encoding="csv">
+0,0,0,0,0,0,
+0,0,0,0,0,0,
+215,0,0,0,0,0,
+0,0,0,0,0,0,
+0,0,0,0,0,0,
+0,0,0,0,0,0,
+0,0,0,0,0,0,
+0,0,0,0,0,0,
+0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="2" name="Buildings" width="6" height="9">
+  <data encoding="csv">
+0,0,226,0,0,0,
+0,0,258,0,0,0,
+139,139,139,139,139,139,
+0,0,589,590,591,496,
+315,0,0,0,0,0,
+0,0,0,0,0,0,
+0,656,657,658,0,0,
+0,688,689,690,0,0,
+0,0,0,0,0,432
+</data>
+ </layer>
+ <layer id="9" name="Buildings1" width="6" height="9">
+  <data encoding="csv">
+0,0,226,0,0,0,
+0,0,258,0,0,0,
+139,139,139,139,139,139,
+0,0,589,590,591,496,
+0,0,0,0,0,0,
+0,0,0,0,0,0,
+0,2147484464,876,877,0,0,
+0,0,0,0,0,0,
+0,0,0,0,0,432
+</data>
+ </layer>
+ <layer id="3" name="Paths" width="6" height="9">
+  <data encoding="csv">
+0,0,0,0,0,0,
+0,0,0,0,0,0,
+0,0,0,0,0,0,
+0,0,0,0,0,0,
+0,0,0,2184,0,0,
+0,0,0,0,0,0,
+0,0,0,0,0,0,
+0,0,0,0,0,0,
+0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="4" name="Front" width="6" height="9">
+  <data encoding="csv">
+0,0,0,0,0,0,
+0,0,0,0,342,0,
+0,0,557,558,559,464,
+0,0,0,0,0,0,
+0,0,0,0,0,0,
+0,624,625,626,0,0,
+0,0,0,0,0,0,
+0,0,0,0,0,0,
+0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="5" name="Back"/>
+ <objectgroup id="12" name="Back1"/>
+ <objectgroup id="6" name="Buildings"/>
+ <objectgroup id="10" name="Buildings1"/>
+ <objectgroup id="7" name="Paths"/>
+ <objectgroup id="8" name="Front"/>
+</map>

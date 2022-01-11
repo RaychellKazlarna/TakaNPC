@@ -1,0 +1,535 @@
+{
+  "Format": "1.24.0",
+  "DynamicTokens": [
+/*tilesheet tone type token*/
+    {
+      "Name": "Tone",
+      "Value": "vanilla"
+    },
+    {
+      "Name": "Tone",
+      "Value": "white",
+      "When": {
+        "HasMod": "Rosalie.CuteValley"
+      }
+    },
+    {
+      "Name": "Tone",
+      "Value": "toneddown",
+      "When": {
+        "HasMod": "Lita.StarblueValley",
+        "HasMod|contains=Rosalie.CuteValley": "false"
+      }
+    },
+    {
+      "Name": "Tone",
+      "Value": "toneddown",
+      "When": {
+        "HasMod": "minervamaga.CP.ATDSV"
+      }
+    },
+    {
+      "Name": "Tone",
+      "Value": "toneddown",
+      "When": {
+        "HasMod|contains=grapeponta.VanillaInteriors, grapeponta.VibrantPastoralRecolor": "true",
+        "HasMod|contains=Rosalie.CuteValley": "false"
+      }
+    },
+    {
+      "Name": "Tone",
+      "Value": "toneddown",
+      "When": {
+        "HasMod": "Rose.Interior.Roserish"
+      }
+    },
+    {
+      "Name": "Tone",
+      "Value": "toneddown",
+      "When": {
+        "HasMod": "Hesper.RusticCountrysideTownInterior"
+      }
+    },
+    {
+      "Name": "Tone",
+      "Value": "toneddown",
+      "When": {
+        "HasMod": "amahra.interiorsrecolours"
+      }
+    },
+    {
+      "Name": "Tone",
+      "Value": "toneddown",
+      "When": {
+        "HasMod": "Sparrow.TweakedVanillaInterior"
+      }
+    },
+/*dynamic location stuff*/
+    {
+      "Name": "FarmRemote",
+      "Value": "crop"
+      "When": {
+        "Day |contains=7, 14, 21, 28": false
+      }
+    },
+    {
+      "Name": "FarmRemote",
+      "Value": "nocrop"
+      "When": {
+        "Day |contains=7, 14, 21, 28": true
+      }
+    },
+    {
+      "Name": "spawnlocation",
+      "Value": "Custom_KuromiyaHouse 1 7",
+      "When": {
+        "HasFlag |contains=TakaNewHome": false
+      }
+    },
+    {
+      "Name": "spawnlocation",
+      "Value": "Custom_KuromiyaNewHouse 0 0",
+      "When": {
+        "HasFlag |contains=TakaNewHome": true
+      }
+    },
+    {
+      "Name": "IsFlagActive",
+      "Value": "Inactive",
+      "When": {
+        "HasFlag |contains=TakaNewHome": false
+      }
+    },
+    {
+      "Name": "IsFlagActive",
+      "Value": "Active",
+      "When": {
+        "HasFlag |contains=TakaNewHome": true
+      }
+    },
+    {
+      "Name": "LocationType",
+      "Value": "indoor",
+      "When": {
+        "IsOutdoors": "false",
+        "LocationName |contains=Custom_KuromiyaHouse, Custom_KuromiyaNewHouse": "false"
+      }
+    },
+    {
+      "Name": "LocationType",
+      "Value": "outdoor",
+      "When": {
+        "IsOutdoors": "true"
+      }
+    },
+    {
+      "Name": "LocationType",
+      "Value": "house",
+      "When": {
+        "IsOutdoors": "false",
+        "LocationName |contains=Custom_KuromiyaHouse, Custom_KuromiyaNewHouse": "true"
+      }
+    }
+  ],
+  "Changes": [
+/*npc registering*/
+    {
+      "LogName": "Taka Portrait",
+      "Action": "Load",
+      "Target": "Portraits/Taka",
+      "FromFile": "assets/NPCArt/TakaPortrait_{{season}}.png",
+      "When": {
+        "season": "spring, fall, winter"
+       }
+    },
+    {
+      "LogName": "Taka Portrait - 2",
+      "Action": "Load",
+      "Target": "Portraits/Taka",
+      "FromFile": "assets/NPCArt/TakaPortrait_summer_{{locationtype}}.png",
+      "When": {
+        "season": "summer"
+       }
+    },
+    {
+      "LogName": "Taka Portrait - 3",
+      "Action": "Load",
+      "Target": "Portraits/Taka_Beach",
+      "FromFile": "assets/NPCArt/TakaPortrait_summer_outdoor.png"
+    },
+    {
+      "LogName": "Taka Sprite",
+      "Action": "Load",
+      "Target": "Characters/Taka",
+      "FromFile": "assets/NPCArt/TakaSprite_{{season}}.png",
+      "When": {
+        "season": "spring, fall, winter"
+       }
+    },
+    {
+      "LogName": "Taka Sprite - 2",
+      "Action": "Load",
+      "Target": "Characters/Taka",
+      "FromFile": "assets/NPCArt/TakaSprite_summer_{{locationtype}}.png",
+      "When": {
+        "season": "summer"
+       }
+    },
+    {
+      "LogName": "Taka Sprite - 3",
+      "Action": "Load",
+      "Target": "Characters/Taka_Beach",
+      "FromFile": "assets/NPCArt/TakaSprite_summer.png"
+    },
+    {
+      "LogName": "NPC Manifestation - 1",
+      "Action": "EditData",
+      "Target": "Data/NPCDispositions",
+      "Entries": {
+        "Taka": "teen/neutral/outgoing/positive/male/datable/Sam/Town/winter 28/Kim ''  Sam '' PregnancyRole become/{{spawnlocation}}/Taka"
+      }
+    },
+    {
+      "LogName": "NPC Manifestation - 2",
+      "Action": "EditData",
+      "Target": "Data/NPCDispositions",
+      "When": {
+        "PlayerGender": "female"
+      },
+      "Entries": {
+        "Taka": "teen/neutral/outgoing/positive/male/not-datable/Sam/Town/winter 28/Kim '' Sam '' PregnancyRole become/{{spawnlocation}}/Taka"
+      }
+    },
+/*schedule*/
+    {
+      "LogName": "Schedule",
+      "Action": "Load",
+      "Target": "Characters/schedules/Taka",
+      "FromFile": "assets/NPCData/Schedule_{{IsFlagActive}}.json"
+    },
+/*dialogue*/
+    {
+      "LogName": "Dialogue + Romantic Dialogue",
+      "Action": "Load",
+      "Target": "Characters/Dialogue/Taka",
+      "FromFile": "assets/NPCData/Dialogue_Romantic.json",
+      "When": {
+        "PlayerGender": "male"
+      }
+    },
+    {
+      "LogName": "Dialogue + Platonic Dialogue",
+      "Action": "Load",
+      "Target": "Characters/Dialogue/Taka",
+      "FromFile": "assets/NPCData/Dialogue_Platonic.json",
+      "When": {
+        "PlayerGender": "female"
+      }
+    },
+    {
+      "LogName": "Gift Dialogue - 1",
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "Entries": {
+        "Taka": "Thanks, @!$h/267 84 227 236 575 305 1056 1109 1076/Thanks, I like this.$0/167 210 213 220 223 224 228 232 233 239 -5/I could probably make use of this.$0#$b#(Maybe in a fire, or something.)$2/232 247 274/@, I don't want this crap.$5/80 342 154 300 296/Thanks./280/"
+      },
+      "When": {
+        "Hearts:Taka": "{{Range: 0, 5}}"
+      }
+    },
+    {
+      "LogName": "Gift Dialogue - 2",
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "Entries": {
+        "Taka": "Thanks, @! This is really nice!$h/280 267 84 227 236 575 305 1056 1109 1076 235 216 194/Thanks @, I like this.$0/184 167 210 213 220 223 224 228 232 233 239 300 -5/It's the thought that counts, I guess.$2/225 226 232 247 274/Um, what is this...?$2/80 342 154 296/Thanks, @./281 280 270 264 262 258 259 651 904/"
+      },
+      "When": {
+        "Hearts:Taka": "{{Range: 6, 14}}"
+      }
+    },
+/*festival dialogue*/
+    {
+      "Action": "EditData",
+      "Target": "Data/Festivals/spring13",
+      "Entries": {
+        "Taka": "I love spending time at the egg festival.$0#$b#It's always nice to see everyone happy.$h"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Festivals/spring24",
+      "Entries": {
+        "Taka": "I don't know if I want to participate in the dance.$2#$b#The way I dance is kinda embarassing.$"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Festivals/summer11",
+      "Entries": {
+        "Taka": "Brought anything for the soup, @?$0#$b#The town soup is the highlight of my summer!$h"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Festivals/fall16",
+      "Entries": {
+        "Taka": "Well hey there @!$h#$b#Are you gonna compete this year?$0"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Festivals/fall27",
+      "Entries": {
+        "Taka": "I hate the spiders in the maze.$2#$b#They make my skin crawl.$2"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Festivals/winter8",
+      "Entries": {
+        "Taka": "I don't like being out here in the cold.$0#$b#I hope you win the competition, though!$h"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Festivals/winter25",
+      "Entries": {
+        "Taka": "Merry Winter Star, @!$h"
+      }
+    },
+/*marriage dialogue*/
+    {
+      "LogName": "Dialogue - Married Dialogue",
+      "Action": "Load",
+      "Target": "Characters/Dialogue/MarriageDialogueTaka",
+      "FromFile": "assets/NPCData/Dialogue_Married.json"
+    },
+    {
+      "LogName": "Engagement Dialogue",
+      "Action": "EditData",
+      "Target": "Data/EngagementDialogue",
+      "Entries": {
+        "Taka0": "I can't believe I'm gonna get married soon!$h#$b#I love you.$l",
+        "Taka1": "I never dreamed that I would be your husband. I'm so lucky.$l"
+      }
+    },
+    {
+      "LogName": "Extra Dialogue Patches for Taka - Normal",
+      "Action": "EditData",
+      "Target": "Data/ExtraDialogue",
+      "When": {
+        "Spouse": "Taka",
+        "HasMod|contains=aedenthorn.FreeLove, aedenthorn.MultipleSpouses": "false"
+      },
+      "Entries": {
+        "Spouse_MonstersInHouse": "How did monsters get in our house...?",
+        "Spouse_KitchenBlocked": "There's a lot of stuff in the kitchen. Could you try to move some of it around?$0",
+        "SummitEvent_Dialogue2_Spouse": "...But look how far we've come. It's amazing how long it's been.",
+        "SummitEvent_Dialogue3_Taka": "You know, I can't believe we've made it this far.$h#$b#If you think about it, we've both changed a lot over the years.$0#$b#I love you, @.$l"
+      }
+    },
+    {
+      "LogName": "Extra Dialogue Patches for Taka - Don't Change Other Spouses' Dialogue",
+      "Action": "EditData",
+      "Target": "Data/ExtraDialogue",
+      "When": {
+        "Spouse": "Taka",
+        "HasMod|contains=aedenthorn.FreeLove, aedenthorn.MultipleSpouses": "true"
+      },
+      "Entries": {
+        "SummitEvent_Dialogue3_Taka": "You know, I can't believe we've made it this far.$h#$b#If you think about it, we've both changed a lot over the years.$0#$b#I love you, @.$l"
+      }
+    },
+/*taka's farm include*/
+    {
+      "Action": "Include",
+      "FromFile": "assets/NPCInclude/BuildHouseForTaka.json"
+    },
+/*taka's house patch*/
+    {
+      "LogName": "KuromiyaHouse Exterior Patch",
+      "Action": "EditMap",
+      "Target": "Maps/Town",
+      "FromFile": "assets/NPCMap/KuromiyaHouseExterior.tmx",
+      "FromArea": { "X": 0, "Y": 0, "Width": 9, "Height": 8 },
+      "ToArea": { "X": 83, "Y": 97, "Width": 9, "Height": 8 },
+      "When": {
+        "HasFlag |contains=TakaNewHome": "false"
+      }
+    },
+    {
+      "LogName": "KuromiyaHouse Exterior Patch - Fix Wayback Tile",
+      "Action": "EditMap",
+      "PatchMode": "Overlay",
+      "Target": "Maps/Town",
+      "FromFile": "assets/NPCMap/KuromiyaHouseExteriorFix.tmx",
+      "FromArea": { "X": 0, "Y": 0, "Width": 1, "Height": 1 },
+      "ToArea": { "X": 86, "Y": 105, "Width": 1, "Height": 1 },
+      "When": {
+        "HasFlag |contains=TakaNewHome": "false",
+        "HasMod|contains=Gweniaczek.WayBackPT": "true"
+      }
+    },
+/*taka's tilesheets*/
+    {
+      "LogName": "KuromiyaHouse Exterior Generator",
+      "Action": "Load",
+      "Target": "Maps/KuromiyaGenerator",
+      "FromFile": "assets/NPCMap/{{TargetWithoutPath}}_normal.png"
+    },
+    {
+      "LogName": "KuromiyaHouse Exterior Generator - Wayback Design",
+      "Action": "EditImage",
+      "Target": "Maps/KuromiyaGenerator",
+      "FromFile": "assets/NPCMap/{{TargetWithoutPath}}_wayback.png",
+      "When": {
+        "HasMod|contains=Gweniaczek.WayBackPT": "true",
+        "season": "spring, summer, fall"
+      }
+    },
+    {
+      "LogName": "KuromiyaHouse Exterior Generator - Wayback Design in Winter",
+      "Action": "EditImage",
+      "Target": "Maps/KuromiyaGenerator",
+      "FromFile": "assets/NPCMap/{{TargetWithoutPath}}_wayback_winter.png",
+      "When": {
+        "HasMod|contains=Gweniaczek.WayBackPT": "true",
+        "season": "winter"
+      }
+    },
+    {
+      "LogName": "KuromiyaHouse Exterior Generator - Wayback Design Fix",
+      "Action": "Load",
+      "Target": "Maps/KuromiyaGeneratorCord",
+      "FromFile": "assets/NPCMap/{{TargetWithoutPath}}Wayback.png",
+      "When": {
+        "HasMod|contains=Gweniaczek.WayBackPT": "true"
+      }
+    },
+    {
+      "LogName": "KuromiyaHouse Interior Extra Poster - Normal",
+      "Action": "Load",
+      "Target": "Maps/KuromiyaHouseTiles",
+      "FromFile": "assets/NPCMap/{{TargetWithoutPath}}_vanilla.png"
+    },
+    {
+      "LogName": "KuromiyaHouse Interior Extra Poster - Toned Down For Recolors",
+      "Action": "EditImage",
+      "Target": "Maps/KuromiyaHouseTiles",
+      "FromFile": "assets/NPCMap/{{TargetWithoutPath}}_{{Tone}}.png",
+      "When": {
+        "Tone": "toneddown"
+      }
+    },
+    {
+      "LogName": "KuromiyaHouse Interior Extra Poster - White Border For Recolors",
+      "Action": "EditImage",
+      "Target": "Maps/KuromiyaHouseTiles",
+      "FromFile": "assets/NPCMap/{{TargetWithoutPath}}_{{Tone}}.png",
+      "When": {
+        "Tone": "white"
+      }
+    },
+    {
+      "LogName": "KuromiyaHouse Interior Trailor Wheels",
+      "Action": "Load",
+      "Target": "Maps/KuromiyaTrailorWheel",
+      "FromFile": "assets/NPCMap/{{TargetWithoutPath}}.png"
+    },
+    {
+      "LogName": "KuromiyaHouse Interior Wall",
+      "Action": "EditImage",
+      "PatchMode": "Overlay",
+      "Target": "Maps/townInterior",
+      "FromFile": "assets/NPCMap/{{TargetWithoutPath}}KuromiyaTrailer.png",
+      "Update": "OnLocationChange",
+      "When": {
+        "LocationName": "Custom_KuromiyaHouse"
+      }
+    },
+    {
+      "LogName": "KuromiyaFarm Sign",
+      "Action": "Load",
+      "Target": "Maps/KuromiyaFarmExtras",
+      "FromFile": "assets/NPCMap/KuromiyaFarmExtra.png"
+    },
+    {
+      "LogName": "KuromiyaFarm Sign - Winter",
+      "Action": "EditImage",
+      "Target": "Maps/KuromiyaFarmExtras",
+      "FromFile": "assets/NPCMap/KuromiyaFarmExtra_Winter.png",
+      "When": {
+        "season": "winter"
+       }
+    },
+    {
+      "LogName": "KuromiyaFarm Sign - Festival of Ice",
+      "Action": "Load",
+      "Target": "Maps/KuromiyaFarmExtras-IceFestival",
+      "FromFile": "assets/NPCMap/KuromiyaFarmExtras_Winter.png"
+    },
+/*taka's houses' strings*/
+    {
+      "LogName": "KuromiyaHouse and KuromiyaFarm Strings",
+      "Action": "EditData",
+      "Target": "Strings/StringsFromMaps",
+      "Entries": {
+        "TakaHouse.1": "Taka's mailbox.",
+        "TakaHouse.2": "A ouija board. It looks similar to Abigail's.",
+        "TakaHouse.3": "A monitor. It's kind of small.",
+        "TakaHouse.4": "An electric keyboard.",
+        "TakaHouse.5": "A CPU. It looks like it's a few years old.",
+        "TakaHouse.6": "A Mega Station. It doesn't have a Code Sultan on it like Shane's.",
+        "TakaHouse.7": "A plush junimo.",
+        "TakaHouse.8": "There are magical girl mangas on the bookshelf.",
+        "TakaHouse.9": "There are books on {{Random:how to repair older computers.@@upgrading old computers.|inputSeparator=@@}}",
+        "TakaHouse.10": "There are various comics and mangas on the bookshelf.",
+        "TakaHouse.11": "There are books on learning Mandarin on the bookshelf.",
+        "TakaHouse.12": "A Kaihaku2 generator from a few years ago. Taka hopes to get the ElektroBolt 9000 generator for his trailer, or even better: a house.",
+        "TakaNewHouse.1": "A stove.",
+        "TakaNewHouse.2": "A refridgerator. There are various crops and stuff inside.",
+        "TakaNewHouse.3": "A sink.",
+        "TakaNewHouse.4": "A trashcan.",
+        "TakaNewHouse.5": "A monitor. Looks like Taka got the upgrade he wanted.",
+        "TakaNewHouse.6": "There are books on farming techniques.",
+        "TakaFarm.1": "Taka's motorcycle.",
+        "TakaFarm.2": "A table.",
+        "TakaFarm.3": "Taka's mailbox.",
+        "TakaFarm.4": "@ Kuromiya Farm^> Cindersap Forest",
+        "TakaFarm.NotWinter": "Taka's rake.",
+        "TakaFarm.NoCrops": "A sprinkler."
+      }
+    },
+/*taka's spouse room*/
+    {
+      "LogName": "Taka's Spouse Room",
+      "Action": "Load",
+      "Target": "Maps/Taka_SR",
+      "FromFile": "assets/NPCMap/{{TargetWithoutPath}}.tmx"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/SpouseRooms",
+      "Entries": {
+        "Taka": "Taka_SR/0"
+      }
+    }
+  ],
+  "CustomLocations": [
+/*taka's house interior*/
+    {
+      "Name": "Custom_KuromiyaHouse",
+      "FromMapFile": "assets/NPCMap/KuromiyaHouse.tmx"
+    },
+    {
+      "Name": "Custom_KuromiyaNewHouse",
+      "FromMapFile": "assets/NPCMap/KuromiyaNewHouse.tmx"
+    },
+/*taka's new house exterior*/
+    {
+      "Name": "Custom_KuromiyaFarm",
+      "FromMapFile": "assets/NPCMap/KuromiyaFarm_{{FarmRemote}}.tmx"
+    }
+  ]
+}

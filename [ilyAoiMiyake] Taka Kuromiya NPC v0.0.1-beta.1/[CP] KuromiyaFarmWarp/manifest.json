@@ -1,0 +1,16 @@
+{
+   "Name": "Kuromiya Farm Warps",
+   "Author": "ilyAoiMiyake",
+   "Version": "1.0.0",
+   "Description": "Allows you to enter and exit Kuromiya Farm.",
+   "UniqueID": "ilyAoiMiyake.KuromiyaFarmWarps",
+   "ContentPackFor": {
+      "UniqueID": "Pathoschild.ContentPatcher",
+   },
+  "Dependencies": [
+    {
+      "UniqueID": "ilyAoiMiyake.TakaKuromiya",
+      "IsRequired": true
+    }
+  ]
+}
