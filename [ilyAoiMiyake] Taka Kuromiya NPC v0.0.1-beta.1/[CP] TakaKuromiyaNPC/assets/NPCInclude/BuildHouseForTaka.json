@@ -130,16 +130,7 @@
           ]
         }
       }
-    },
-    {
-      "LogName": "KuromiyaNewHouse Patch",
-      "Action": "EditMap",
-      "Target": "Maps/idfk",
-      "FromFile": "assets/NPCMap/idfk_Patch.tmx",
-      "When": {
-        "HasFlag |contains=TakaNewHome": true
-      }
-    },
+    },     
     {
       "LogName": "KuromiyaFarm Forest Patch",
       "Action": "EditMap",
